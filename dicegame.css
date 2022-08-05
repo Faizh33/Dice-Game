@@ -54,21 +54,66 @@ body {
 }
 
 .players {
-    margin-bottom: 30%;
+    margin-bottom: 25%;
 }
 
 .points {
     color: white;
+    font-size: 2em;
 }
   
 .text-current {
     color: black;
+}
 
+.score {
+    font-size: 3em;
 }
 
 /* Appareils moyens (tablettes, 768px et plus)*/
 @media (min-width: 768px) { 
+    .dice {
+        height: 125px;
+        width: 175px;
+    }
     
+    .butn {
+        height: 3.8em;
+        width: 3.8em;
+    }
+    
+    .player {
+        font-size: 2.3em;
+    }
+    
+    .score {
+        font-size: 3em;
+    }
+    
+    .current-bloc {
+        max-height: 115px;
+        max-width: 200px;
+    }
+    
+    .current1 {
+        margin-left: 8%;
+    }
+    
+    .current2 {
+        margin-right: 8%;
+    }
+    
+    .text-button {
+        font-size: 1.2em;
+    }
+    
+    .points {
+        font-size: 3em;
+    }
+    
+    .players, .newgame {
+        margin-bottom: 15%;
+    }
  }
 
 /* Grands appareils (ordinateurs de bureau, 992px et plus)*/
@@ -109,11 +154,10 @@ body {
     }
     
     .points {
-        line-height: 25%;
         font-size: 3em;
     }
     
     .players, .newgame {
-        margin-bottom: 8%;
+        margin-bottom: 7%;
     }
  }
