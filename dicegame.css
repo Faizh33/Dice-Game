@@ -18,8 +18,9 @@ body {
 }
 
 .dice {
-    height: 100px;
-    width: 150px;
+    margin-top: 10%;
+    height: 75px;
+    width: 100px;
 }
 
 .butn {
@@ -27,20 +28,24 @@ body {
     width: 3em;
     border: none;
     background: white;
+    cursor: pointer;
 }
 
 .btnnw {
-    height: 5em;
-    width: 5em;
+    height: 4em;
+    width: 4em;
 }
 
 .current {
     border: 1px red solid;
     background: red;
+    max-height: 100px;
+    margin-top: 30%;
 }
 
 .player {
     font-size: 1.5em;
+    font-weight: 600;
 }
 
 .score {
@@ -49,12 +54,14 @@ body {
 }
 
 .newgame {
-    margin-bottom: 30%;
-    font-size: 2em;
+    margin-top : 15%;
+    margin-bottom: 15%;
+    font-size: 1.2em;
+    font-weight: 700;
 }
 
 .players {
-    margin-bottom: 25%;
+    margin-bottom: 10%;
 }
 
 .points {
@@ -70,8 +77,27 @@ body {
     font-size: 3em;
 }
 
+/* Appareils petits (460px et plus) */
+@media (min-width: 460px) {
+    .newgame {
+        margin-bottom: 15%;
+    }
+
+    .players {
+        margin-bottom: 20%;
+    }
+
+    .current {
+        margin-top: 0%;
+    }
+}
+
 /* Appareils moyens (tablettes, 768px et plus)*/
 @media (min-width: 768px) { 
+    .newgame {
+        margin-top: 5%;
+    }
+    
     .dice {
         height: 125px;
         width: 175px;
@@ -112,15 +138,20 @@ body {
     }
     
     .players, .newgame {
-        margin-bottom: 15%;
+        margin-bottom: 10%;
     }
  }
 
 /* Grands appareils (ordinateurs de bureau, 992px et plus)*/
 @media (min-width: 992px) {
+    .newgame {
+        margin-top: 2%;
+    }
+
     .dice {
         height: 150px;
         width: 200px;
+        margin-top: 5%;
     }
     
     .butn {
@@ -141,6 +172,10 @@ body {
         max-width: 200px;
     }
     
+    .current {
+        margin-top: 10%;
+    }
+
     .current1 {
         margin-left: 12%;
     }
@@ -158,6 +193,6 @@ body {
     }
     
     .players, .newgame {
-        margin-bottom: 7%;
+        margin-bottom: 4%;
     }
  }
