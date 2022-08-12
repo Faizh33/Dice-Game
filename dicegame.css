@@ -4,7 +4,7 @@ body {
     font-size: 1em;
 }
 
-.player, .score, .text-current, .points, .rolldice-btn {
+.player, .totalScore, .text-current, .currentScore, .rolldice-btn {
     text-align: center; 
 }
 
@@ -31,7 +31,7 @@ body {
     cursor: pointer;
 }
 
-.btnnw {
+.btnNewGame {
     height: 4em;
     width: 4em;
 }
@@ -48,7 +48,7 @@ body {
     font-weight: 600;
 }
 
-.score {
+.totalScore {
     font-size: 1.2em;
     color: red;
 }
@@ -64,7 +64,7 @@ body {
     margin-bottom: 10%;
 }
 
-.points {
+.currentScore {
     color: white;
     font-size: 2em;
 }
@@ -73,7 +73,7 @@ body {
     color: black;
 }
 
-.score {
+.totalScore {
     font-size: 3em;
 }
 
@@ -112,7 +112,7 @@ body {
         font-size: 2.3em;
     }
     
-    .score {
+    .totalScore {
         font-size: 3em;
     }
     
@@ -133,7 +133,7 @@ body {
         font-size: 1.2em;
     }
     
-    .points {
+    .currentScore {
         font-size: 3em;
     }
     
@@ -163,7 +163,7 @@ body {
         font-size: 3em;
     }
     
-    .score {
+    .totalScore {
         font-size: 5em;
     }
     
@@ -188,7 +188,7 @@ body {
         font-size: 1.5em;
     }
     
-    .points {
+    .currentScore {
         font-size: 3em;
     }
     
