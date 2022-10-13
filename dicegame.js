@@ -1,33 +1,50 @@
-// Create players class
-class players {
-    constructor(name, currentScore, totalScore, tour, winner) {
-        this.name = name
-        this.currentScore = currentScore
-        this.totalScore = totalScore
-        this.tour = false
-        this.winner = false
+let currentScore = document.getElementsByClassName('currentScore');
+let totalScore = document.getElementsByClassName('totalScore');
+let current = currentScore;
+let total = totalScore;
+
+let player1;
+let player2;
+
+let activePlayer = player1;
+
+// Function to switch between player
+function switchPlayer() {
+    if (activePlayer === 'player1') {
+      activePlayer = 'player2';
+    } else {
+      activePlayer = 'player1';
     }
 }
 
-// Create each player
-let player1 = new players('player1', 0, 0, false, false);
-let player2 = new players('player2', 0, 0, false, false);
-let players = [player1, player2];
-
-let currentPlayer;
-let diceGameTour = 0;
 
 // Function Roll the Dice button 
 function rollTheDice() {
     setTimeout(function () {
-        var currentScore = Math.floor(Math.random() * 6) + 1;
+        var randomNumber = Math.floor(Math.random() * 6) + 1;
 
         document.querySelector(".img").setAttribute("src",
-            "./img-dice/dice" + currentScore + ".png");
+            "./img-dice/dice" + randomNumber + ".png");
     }
 )}
 
-//Function reset
+// Function to add current score when player roll the dice
+function temporaryScore() {
+    currentScore += randomNumber;
+} 
+
+//function to add current score to your score if you click on "hold".
+function hold() {
+
+  }
+
+// Function for new game 
 function newGame() {
-    document.querySelector("body").reset();
+    currentScore = 0;
+    totalScore = 0;
 }
+
+
+
+
+
