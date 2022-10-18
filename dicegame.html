@@ -28,7 +28,7 @@
       <!--Creation button new game-->
       <div class="row">
         <div class="col text-center">
-          <button type="button" class="butn btnNewGame" onClick="newgame()">
+          <button type="button" class="butn btnNewGame" id="newGameBtn">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -52,14 +52,14 @@
       <div class="row players">
         <div class="col player-block">
           <p class="player">PLAYER 1</p>
-          <p class="totalScore totalScore1">0</p>
+          <p class="totalScore">0</p>
         </div>
         <div class="dice">
           <img class="col img" src="./img-dice/dice6.png" />
         </div>
         <div class="col player-block">
           <p class="player">PLAYER 2</p>
-          <p class="totalScore totalScore2">0</p>
+          <p class="totalScore">0</p>
         </div>
       </div>
       <!--Part bottom of the page with current score and buttons (roll dice/hold)-->
@@ -67,11 +67,11 @@
         <div class="col current-bloc current1">
           <div class="current">
             <p class="text-current">CURRENT</p>
-            <p class="currentScore currentScore1">0</p>
+            <p class="currentScore" id="currentScoreP1">0</p>
           </div>
         </div>
         <div class="col rolldice-btn">
-          <button type="button" class="butn" onClick="rollTheDice()">
+          <button type="button" class="butn" id="rollDiceBtn">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -91,7 +91,7 @@
           </button>
           <p class="text-button rolldice">ROLL DICE</p>
           <br />
-          <button type="button" class="butn" onClick="hold()">
+          <button type="button" class="butn" id="hold-btn">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -114,8 +114,8 @@
         </div>
         <div class="col current-bloc current2">
           <div class="current">
-            <p class="text-current" >CURRENT</p>
-            <p class="currentScore currentScore2">0</p>
+            <p class="text-current">CURRENT</p>
+            <p class="currentScore" id="currentScoreP2">0</p>
           </div>
         </div>
       </div>
