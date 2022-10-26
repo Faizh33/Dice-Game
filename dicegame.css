@@ -31,7 +31,7 @@ body {
     cursor: pointer;
 }
 
-.btnNewGame {
+#newGameBtn {
     height: 4em;
     width: 4em;
 }
