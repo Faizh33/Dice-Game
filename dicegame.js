@@ -1,6 +1,7 @@
 let rollBtn = document.getElementById('rollDiceBtn');
-let current = document.getElementsByClassName('currentScore')
-
+let current = document.getElementsByClassName('currentScore');
+let holdBtn = document.getElementById('hold-btn');
+let total = document.getElementsByClassName('totalScore');
 
 
 //Create players class
@@ -24,11 +25,6 @@ let gameTurn = 0;
 //Initialize active player
 let activePlayer;
 
-//Function random number
-function random(min, max) {
-  return Math.floor(Math.random() * (max - min) + min);
-}
-
 //To roll the dice
 let rollTheDice = debounce(function () {
   var randomNumber = random(1, 7);
@@ -47,6 +43,7 @@ let rollTheDice = debounce(function () {
     current[1].textContent = player2.currentScore
   }
 
+  //If dice = 1
   if(randomNumber === 1 && gameTurn%2 === 0) {
     player1.currentScore = 0;
     current[0].textContent = player1.currentScore
@@ -72,6 +69,11 @@ function debounce(callback, delay) {
   }
 }
 
+//Function random number
+function random(min, max) {
+  return Math.floor(Math.random() * (max - min) + min);
+}
+
 //Event roll the dice
 rollBtn.addEventListener('click', rollTheDice);
 
@@ -89,3 +91,23 @@ function switchPlayer() {
     gameTurn++
   }
 }
+
+//function to add total score
+let hold = () => {
+  if(gameTurn%2 === 0) {
+    player1.totalScore += player1.currentScore;
+    total[0].textContent = player1.totalScore;
+    player1.currentScore = 0;
+    current[0].textContent = player1.currentScore
+    switchPlayer()
+  } else {
+    player2.totalScore += player2.currentScore;
+    total[1].textContent = player2.totalScore;
+    player2.currentScore = 0;
+    current[1].textContent = player2.currentScore
+    switchPlayer()
+  }
+}
+
+//event function hold()
+holdBtn.addEventListener('click', hold)
