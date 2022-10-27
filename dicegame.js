@@ -6,18 +6,16 @@ let total = document.getElementsByClassName('totalScore');
 
 //Create players class
 class Players {
-  constructor(name, currentScore, totalScore, turn, win) {
+  constructor(name, currentScore, totalScore, win) {
     this.name = name
     this.currentScore = currentScore
     this.totalScore = totalScore
-    this.turn = false
-    this.win = false
   }
 }  
 
 //Create each player
-let player1 = new Players('player1', 0, 0, false, false);
-let player2 = new Players('player2', 0, 0, false, false);
+let player1 = new Players('player1', 0, 0);
+let player2 = new Players('player2', 0, 0);
 
 //Start Game
 let gameTurn = 0;
@@ -31,13 +29,12 @@ let rollTheDice = debounce(function () {
 
   document.querySelector(".img").setAttribute("src", "./img-dice/" + "dice" + randomNumber + ".png");
 
+  //Initialization game
   if(gameTurn%2 === 0) {                //si gameTurn est pair             
-    player1.turn = true;
     activePlayer = player1;
     activePlayer.currentScore += randomNumber;     
     current[0].textContent = player1.currentScore
-  } else {                              //si gameTurn est impair 
-    player2.turn = true;                        
+  } else {                              //si gameTurn est impair                     
     activePlayer = player2;
     activePlayer.currentScore += randomNumber;  
     current[1].textContent = player2.currentScore
@@ -82,18 +79,16 @@ function switchPlayer() {
   if (activePlayer === player1) {
     player1.turn = false;
     activePlayer = player2;
-    player2.turn = true;
     gameTurn++
   } else {
     player2.turn = false;
     activePlayer = player1;
-    player1.turn = true;
     gameTurn++
   }
 }
 
 //function to add total score
-let hold = () => {
+let hold = debounce (function (e){
   if(gameTurn%2 === 0) {
     player1.totalScore += player1.currentScore;
     total[0].textContent = player1.totalScore;
@@ -107,7 +102,13 @@ let hold = () => {
     current[1].textContent = player2.currentScore
     switchPlayer()
   }
-}
+
+    //if the player reaches 100 points
+    if(player1.totalScore >= 100 || player2.totalScore >= 100) {
+      rollBtn.removeEventListener('click', rollTheDice);
+      holdBtn.removeEventListener('click', rollTheDice)
+    }
+}, 300)
 
 //event function hold()
 holdBtn.addEventListener('click', hold)
