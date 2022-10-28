@@ -3,6 +3,7 @@ let current = document.getElementsByClassName('currentScore');
 let holdBtn = document.getElementById('hold-btn');
 let total = document.getElementsByClassName('totalScore');
 let newGameBtn = document.getElementById('newGameBtn');
+let dot = document.getElementsByClassName('bi-dot');
 
 
 //Create players class
@@ -20,6 +21,7 @@ let player2 = new Players('player2', 0, 0);
 
 //Start Game
 let gameTurn = 0;
+dot[1].style.opacity = 0;
 
 //Initialize active player
 let activePlayer;
@@ -31,11 +33,11 @@ let rollTheDice = debounce(function () {
   document.querySelector(".img").setAttribute("src", "./img-dice/" + "dice" + randomNumber + ".png");
 
   //Initialization game
-  if(gameTurn%2 === 0) {                //si gameTurn est pair             
+  if(gameTurn%2 === 0) {  //if gameTurn is even             
     activePlayer = player1;
     activePlayer.currentScore += randomNumber;     
-    current[0].textContent = player1.currentScore
-  } else {                              //si gameTurn est impair                     
+    current[0].textContent = player1.currentScore;
+  } else {   //if gameTurn is odd                    
     activePlayer = player2;
     activePlayer.currentScore += randomNumber;  
     current[1].textContent = player2.currentScore
@@ -80,11 +82,15 @@ function switchPlayer() {
   if (activePlayer === player1) {
     player1.turn = false;
     activePlayer = player2;
-    gameTurn++
+    gameTurn++;
+    dot[0].style.opacity = 0;
+    dot[1].style.opacity = 1
   } else {
     player2.turn = false;
     activePlayer = player1;
-    gameTurn++
+    gameTurn++;
+    dot[0].style.opacity = 1;
+    dot[1].style.opacity = 0
   }
 }
 

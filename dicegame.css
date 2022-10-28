@@ -48,6 +48,12 @@ body {
     font-weight: 600;
 }
 
+.bi-dot {
+    height: 8vw;
+    width: 8vw;
+    color: red;
+}
+
 .totalScore {
     font-size: 1.2em;
     color: red;
