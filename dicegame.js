@@ -1,14 +1,17 @@
-let rollBtn = document.getElementById('rollDiceBtn');
+const rollBtn = document.getElementById('rollDiceBtn');
 let current = document.getElementsByClassName('currentScore');
-let holdBtn = document.getElementById('hold-btn');
+const holdBtn = document.getElementById('hold-btn');
 let total = document.getElementsByClassName('totalScore');
-let newGameBtn = document.getElementById('newGameBtn');
-let dot = document.getElementsByClassName('bi-dot');
+const newGameBtn = document.getElementById('newGameBtn');
+const dot = document.getElementsByClassName('bi-dot');
+const applauseSound = document.getElementById('applauseSound');
+const loseSound = document.getElementById('loseSound');
+
 
 
 //Create players class
 class Players {
-  constructor(name, currentScore, totalScore, win) {
+  constructor(name, currentScore, totalScore) {
     this.name = name
     this.currentScore = currentScore
     this.totalScore = totalScore
@@ -31,7 +34,6 @@ let rollTheDice = debounce(function () {
   var randomNumber = random(1, 7);
 
   document.querySelector(".img").setAttribute("src", "./img-dice/" + "dice" + randomNumber + ".png");
-
   //Initialization game
   if(gameTurn%2 === 0) {  //if gameTurn is even             
     activePlayer = player1;
@@ -45,10 +47,12 @@ let rollTheDice = debounce(function () {
 
   //If dice = 1
   if(randomNumber === 1 && gameTurn%2 === 0) {
+    loseSound.play()
     player1.currentScore = 0;
     current[0].textContent = player1.currentScore
     switchPlayer()
   } else if (randomNumber === 1 && gameTurn%2 !== 0) {
+    loseSound.play()
     player2.currentScore = 0;
     current[1].textContent = player2.currentScore
     switchPlayer()
@@ -140,4 +144,3 @@ function confirmRestart() {
 
 //Event newGame
 newGameBtn.addEventListener('click', confirmRestart)
-

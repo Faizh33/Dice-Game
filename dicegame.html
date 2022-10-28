@@ -24,11 +24,18 @@
   </head>
 
   <body id="body">
+    <!--Sounds-->
+    <audio id="rollDiceSound" src="/mp3/roll-dice.mp3"></audio>
+    <audio id="holdSound" src="/mp3/hold.mp3"></audio>
+    <audio id="applauseSound" src="/mp3/applause.mp3"></audio>
+    <audio id="loseSound" src="/mp3/lose.mp3"></audio>
+    <audio id="newgameSound" src="/mp3/newgame.mp3"></audio>
+    <!--Main contain-->
     <div class="container">
       <!--Creation button new game-->
       <div class="row">
         <div class="col text-center">
-          <button type="button" class="butn" id="newGameBtn">
+          <button type="button" class="butn" id="newGameBtn" onclick="document.getElementById('newgameSound').play();">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -50,6 +57,7 @@
       </div>
       <!--Part players with global score-->
       <div class="row players">
+        <!--Player 1-->
         <div class="col player-block">
           <p class="player">PLAYER 1
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi-dot" viewBox="0 0 16 16">
@@ -61,6 +69,7 @@
         <div class="dice">
           <img class="col img" src="./img-dice/dice6.png" />
         </div>
+        <!--Player 2-->
         <div class="col player-block">
           <p class="player">
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi-dot" viewBox="0 0 16 16">
@@ -73,14 +82,16 @@
       </div>
       <!--Part bottom of the page with current score and buttons (roll dice/hold)-->
       <div class="row bottom-bloc">
+        <!--Current score = Player 1-->
         <div class="col current-bloc current1">
           <div class="current">
             <p class="text-current">CURRENT</p>
             <p class="currentScore" id="currentScoreP1">0</p>
           </div>
         </div>
+        <!--Button to roll the dice-->
         <div class="col rolldice-btn">
-          <button type="button" class="butn" id="rollDiceBtn">
+          <button type="button" class="butn" id="rollDiceBtn" onclick="document.getElementById('rollDiceSound').play();">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -100,7 +111,8 @@
           </button>
           <p class="text-button rolldice">ROLL DICE</p>
           <br />
-          <button type="button" class="butn" id="hold-btn">
+          <!--Hold button-->
+          <button type="button" class="butn" id="hold-btn" onclick="document.getElementById('holdSound').play();">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -121,6 +133,7 @@
           </button>
           <p class="text-button hold">HOLD</p>
         </div>
+        <!--Current score = Player 2-->
         <div class="col current-bloc current2">
           <div class="current">
             <p class="text-current">CURRENT</p>
