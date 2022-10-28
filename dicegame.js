@@ -2,6 +2,7 @@ let rollBtn = document.getElementById('rollDiceBtn');
 let current = document.getElementsByClassName('currentScore');
 let holdBtn = document.getElementById('hold-btn');
 let total = document.getElementsByClassName('totalScore');
+let newGameBtn = document.getElementById('newGameBtn');
 
 
 //Create players class
@@ -112,3 +113,25 @@ let hold = debounce (function (e){
 
 //event function hold()
 holdBtn.addEventListener('click', hold)
+
+//Function new game
+function newGame() {
+  player1 = new Players('player1', 0, 0);
+  player2 = new Players('player2', 0, 0);
+  gameTurn = 0;
+  current[0].textContent = 0;
+  current[1].textContent = 0;
+  total[0].textContent = 0;
+  total[1].textContent = 0;
+}
+
+//Function confirm new game
+function confirmRestart() {
+  if (confirm("Êtes-vous sûr(e)s de vouloir redémarrer la partie?")) {
+    newGame();
+  }
+}
+
+//Event newGame
+newGameBtn.addEventListener('click', confirmRestart)
+
