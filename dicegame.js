@@ -8,8 +8,9 @@ const applauseSound = document.getElementById('applauseSound');
 const newGameSound = document.getElementById('newGameSound');
 const holdSound = document.getElementById('holdSound');
 const loseSound = document.getElementById('loseSound');
-const rollDiceSound = document.getElementById('rollDiceSound')
-
+const rollDiceSound = document.getElementById('rollDiceSound');
+let playerText = document.getElementsByClassName('player');
+var styleBtns = document.getElementsByClassName('butn');
 
 //Create players class
 class Players {
@@ -26,10 +27,12 @@ let player2 = new Players('player2', 0, 0);
 
 //Start Game
 let gameTurn = 0;
-dot[1].style.opacity = 0;
 
 //Initialize active player
 let activePlayer;
+
+//Style CSS player
+cssPlayer();
 
 //To roll the dice
 let rollTheDice = debounce(function () {
@@ -38,28 +41,30 @@ let rollTheDice = debounce(function () {
   document.querySelector(".img").setAttribute("src", "./img-dice/" + "dice" + randomNumber + ".png");
 
   //Initialization game
-  if(gameTurn%2 === 0) {  //if gameTurn is even             
+  if(gameTurn%2 === 0) {  //if gameTurn is even            
     activePlayer = player1;
     activePlayer.currentScore += randomNumber;     
     current[0].textContent = player1.currentScore;
-  } else {   //if gameTurn is odd                    
+  } else {   //if gameTurn is odd                      
     activePlayer = player2;
     activePlayer.currentScore += randomNumber;  
-    current[1].textContent = player2.currentScore
-
+    current[1].textContent = player2.currentScore;
   }
 
   //If dice = 1
   if(randomNumber === 1 && gameTurn%2 === 0) {
-    loseSound.play()
+    loseSound.play();
     player1.currentScore = 0;
-    current[0].textContent = player1.currentScore
-    switchPlayer()
+    current[0].textContent = player1.currentScore;
+    switchPlayer();
+    cssPlayer()
   } else if (randomNumber === 1 && gameTurn%2 !== 0) {
-    loseSound.play()
+    cssPlayer();
+    loseSound.play();
     player2.currentScore = 0;
-    current[1].textContent = player2.currentScore
-    switchPlayer()
+    current[1].textContent = player2.currentScore;
+    switchPlayer();
+    cssPlayer()
   }
 }, 500)
 
@@ -90,14 +95,10 @@ function switchPlayer() {
     player1.turn = false;
     activePlayer = player2;
     gameTurn++;
-    dot[0].style.opacity = 0;
-    dot[1].style.opacity = 1
   } else {
     player2.turn = false;
     activePlayer = player1;
     gameTurn++;
-    dot[0].style.opacity = 1;
-    dot[1].style.opacity = 0
   }
 }
 
@@ -110,12 +111,14 @@ let hold = debounce (function (e){
     player1.currentScore = 0;
     current[0].textContent = player1.currentScore
     switchPlayer()
+    cssPlayer()
   } else {
     player2.totalScore += player2.currentScore;
     total[1].textContent = player2.totalScore;
     player2.currentScore = 0;
     current[1].textContent = player2.currentScore
     switchPlayer()
+    cssPlayer()
   }
 
     //if the player reaches 100 points
@@ -153,3 +156,30 @@ function confirmRestart() {
 
 //Event newGame
 newGameBtn.addEventListener('click', confirmRestart)
+
+//Function css player
+function cssPlayer() {
+  if(gameTurn%2 === 0) {
+    dot[0].style.opacity = 1;
+    dot[1].style.opacity = 0;
+    playerText[0].style.fontWeight = 600;
+    playerText[1].style.fontWeight = 400;
+    playerText[0].style.opacity = 1;
+    playerText[1].style.opacity = 0.25;
+    body.style.background = 'linear-gradient(90deg, #edf1f1 50%, white 50%)';
+    for (let styleBtn of styleBtns) {
+      styleBtn.style.background = "#edf1f1";
+    }
+  } else {
+    dot[0].style.opacity = 0;
+    dot[1].style.opacity = 1;
+    playerText[0].style.fontWeight = 400;
+    playerText[1].style.fontWeight = 600;
+    playerText[0].style.opacity = 0.25;
+    playerText[1].style.opacity = 1;
+    body.style.background = 'linear-gradient(90deg, white 50%, #edf1f1 50%)';
+    for (let styleBtn of styleBtns) {
+      styleBtn.style.background = "white";
+  }
+  }
+}

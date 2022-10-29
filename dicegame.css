@@ -12,7 +12,7 @@ body {
     display: inline-block;
 }
 
-.img, .current, svg {
+.img, .current, .bi {
     height: 100%;
     width: 100%;
 }
