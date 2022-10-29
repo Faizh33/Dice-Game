@@ -105,6 +105,7 @@ function switchPlayer() {
 //function to add total score
 let hold = debounce (function (e){
   holdSound.play()
+
   if(gameTurn%2 === 0) {
     player1.totalScore += player1.currentScore;
     total[0].textContent = player1.totalScore;
@@ -124,10 +125,21 @@ let hold = debounce (function (e){
     //if the player reaches 100 points
     if(player1.totalScore >= 100 || player2.totalScore >= 100) {
       applauseSound.play()
-      rollBtn.removeEventListener('click', rollTheDice);
-      holdBtn.removeEventListener('click', rollTheDice);
-      dot[0].style.opacity = 0;
-      dot[1].style.opacity = 0;
+      //Confetti animation
+    for (let index = 0; index < (Math.floor(Math.random() * 20) + 10); index++) {
+      confetti({ 
+        origin: {
+          x: Math.random() - 0.2,
+          y: Math.random() - 0.2
+        },
+      })
+    }
+
+      //Restart game
+    rollBtn.removeEventListener('click', rollTheDice);
+    holdBtn.removeEventListener('click', hold);
+    dot[0].style.opacity = 0;
+    dot[1].style.opacity = 0;
     }
 }, 300)
 
@@ -145,6 +157,8 @@ function newGame() {
   total[0].textContent = 0;
   total[1].textContent = 0;
   dot[0].style.opacity = 0;
+  rollBtn.addEventListener('click', rollTheDice);
+  holdBtn.addEventListener('click', hold);
 }
 
 //Function confirm new game
