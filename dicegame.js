@@ -5,8 +5,10 @@ let total = document.getElementsByClassName('totalScore');
 const newGameBtn = document.getElementById('newGameBtn');
 const dot = document.getElementsByClassName('bi-dot');
 const applauseSound = document.getElementById('applauseSound');
+const newGameSound = document.getElementById('newGameSound');
+const holdSound = document.getElementById('holdSound');
 const loseSound = document.getElementById('loseSound');
-
+const rollDiceSound = document.getElementById('rollDiceSound')
 
 
 //Create players class
@@ -32,8 +34,9 @@ let activePlayer;
 //To roll the dice
 let rollTheDice = debounce(function () {
   var randomNumber = random(1, 7);
-
+  rollDiceSound.play();
   document.querySelector(".img").setAttribute("src", "./img-dice/" + "dice" + randomNumber + ".png");
+
   //Initialization game
   if(gameTurn%2 === 0) {  //if gameTurn is even             
     activePlayer = player1;
@@ -43,6 +46,7 @@ let rollTheDice = debounce(function () {
     activePlayer = player2;
     activePlayer.currentScore += randomNumber;  
     current[1].textContent = player2.currentScore
+
   }
 
   //If dice = 1
@@ -57,7 +61,6 @@ let rollTheDice = debounce(function () {
     current[1].textContent = player2.currentScore
     switchPlayer()
   }
-
 }, 500)
 
 //Fonction debounce
@@ -100,6 +103,7 @@ function switchPlayer() {
 
 //function to add total score
 let hold = debounce (function (e){
+  holdSound.play()
   if(gameTurn%2 === 0) {
     player1.totalScore += player1.currentScore;
     total[0].textContent = player1.totalScore;
@@ -116,8 +120,11 @@ let hold = debounce (function (e){
 
     //if the player reaches 100 points
     if(player1.totalScore >= 100 || player2.totalScore >= 100) {
+      applauseSound.play()
       rollBtn.removeEventListener('click', rollTheDice);
-      holdBtn.removeEventListener('click', rollTheDice)
+      holdBtn.removeEventListener('click', rollTheDice);
+      dot[0].style.opacity = 0;
+      dot[1].style.opacity = 0;
     }
 }, 300)
 
@@ -126,6 +133,7 @@ holdBtn.addEventListener('click', hold)
 
 //Function new game
 function newGame() {
+  newGameSound.play();
   player1 = new Players('player1', 0, 0);
   player2 = new Players('player2', 0, 0);
   gameTurn = 0;
@@ -133,6 +141,7 @@ function newGame() {
   current[1].textContent = 0;
   total[0].textContent = 0;
   total[1].textContent = 0;
+  dot[0].style.opacity = 0;
 }
 
 //Function confirm new game
