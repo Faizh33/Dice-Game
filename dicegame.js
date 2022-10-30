@@ -10,20 +10,23 @@ const holdSound = document.getElementById('holdSound');
 const loseSound = document.getElementById('loseSound');
 const rollDiceSound = document.getElementById('rollDiceSound');
 let playerText = document.getElementsByClassName('player');
-var styleBtns = document.getElementsByClassName('butn');
+let styleBtns = document.getElementsByClassName('butn');
+let winPop = document.getElementById('modal-win');
+let winPopText = document.getElementById('modalText');
 
 //Create players class
 class Players {
-  constructor(name, currentScore, totalScore) {
+  constructor(name, currentScore, totalScore, win) {
     this.name = name
     this.currentScore = currentScore
     this.totalScore = totalScore
+    this.win = false
   }
 }  
 
 //Create each player
-let player1 = new Players('player1', 0, 0);
-let player2 = new Players('player2', 0, 0);
+let player1 = new Players('player1', 0, 0, false);
+let player2 = new Players('player2', 0, 0, false);
 
 //Start Game
 let gameTurn = 0;
@@ -123,18 +126,41 @@ let hold = debounce (function (e){
   }
 
     //if the player reaches 100 points
-    if(player1.totalScore >= 100 || player2.totalScore >= 100) {
+    if(player1.totalScore >= 10) {
+      player1.win = true;
+    } else if (player2.totalScore >= 10) {
+      player2.win = true;
+    }
+    //Animations
+    if(player1.totalScore >= 10 || player2.totalScore >= 10) {
       applauseSound.play()
       //Confetti animation
-    for (let index = 0; index < (Math.floor(Math.random() * 20) + 10); index++) {
-      confetti({ 
-        origin: {
-          x: Math.random() - 0.2,
-          y: Math.random() - 0.2
-        },
+      for (let index = 0; index < (Math.floor(Math.random() * 20) + 10); index++) {
+        confetti({ 
+          origin: {
+            x: Math.random() - 0.2,
+            y: Math.random() - 0.2
+          },
+        })
+      }
+      //Open Pop-up
+      winPop.style.display = 'block'
+      //Winner text
+      if (player1.win === true) {
+        winPopText.textContent =  `PARTIE GAGNÉ !!
+        La partie a été remporté par le joueur 1 avec ${player1.totalScore} points.
+        Pour jouer une nouvelle partie, cliquez sur New Game.
+        `;
+      } else if (player2.win === true) {
+        winPopText.textContent = `PARTIE GAGNÉ !!
+        La partie a été remporté par le joueur 2 avec ${player2.totalScore} points.
+        Pour jouer une nouvelle partie, cliquez sur New Game.
+        `;
+      }
+      //Close Pop-up
+      document.getElementById('modal-close').addEventListener('click', function(e) {
+        winPop.style.display = 'none'
       })
-    }
-
       //Restart game
     rollBtn.removeEventListener('click', rollTheDice);
     holdBtn.removeEventListener('click', hold);
@@ -157,6 +183,9 @@ function newGame() {
   total[0].textContent = 0;
   total[1].textContent = 0;
   dot[0].style.opacity = 0;
+  player1.win = false;
+  player2.win = false;
+  cssPlayer();
   rollBtn.addEventListener('click', rollTheDice);
   holdBtn.addEventListener('click', hold);
 }
@@ -197,3 +226,6 @@ function cssPlayer() {
   }
   }
 }
+
+//modal win
+
