@@ -13,6 +13,7 @@ let playerText = document.getElementsByClassName('player');
 let styleBtns = document.getElementsByClassName('butn');
 let winPop = document.getElementById('modal-win');
 let winPopText = document.getElementById('modalText');
+let rulesPop = document.getElementById('modal-rules');
 
 //Create players class
 class Players {
@@ -126,13 +127,13 @@ let hold = debounce (function (e){
   }
 
     //if the player reaches 100 points
-    if(player1.totalScore >= 10) {
+    if(player1.totalScore >= 100) {
       player1.win = true;
-    } else if (player2.totalScore >= 10) {
+    } else if (player2.totalScore >= 100) {
       player2.win = true;
     }
     //Animations
-    if(player1.totalScore >= 10 || player2.totalScore >= 10) {
+    if(player1.totalScore >= 100 || player2.totalScore >= 100) {
       applauseSound.play()
       //Confetti animation
       for (let index = 0; index < (Math.floor(Math.random() * 20) + 10); index++) {
@@ -158,7 +159,7 @@ let hold = debounce (function (e){
         `;
       }
       //Close Pop-up
-      document.getElementById('modal-close').addEventListener('click', function(e) {
+      document.getElementById('modal-close1').addEventListener('click', function(e) {
         winPop.style.display = 'none'
       })
       //Restart game
@@ -227,5 +228,12 @@ function cssPlayer() {
   }
 }
 
-//modal win
+//Open game rules
+document.getElementById('btn-rules').addEventListener('click', function(e) {
+  rulesPop.style.display = 'block'
+})
 
+//Close game rules
+document.getElementById('modal-close2').addEventListener('click', function(e) {
+  rulesPop.style.display = 'none'
+})

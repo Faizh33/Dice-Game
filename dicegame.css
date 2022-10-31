@@ -83,7 +83,9 @@ body {
     font-size: 3em;
 }
 
-.modal-win {
+
+/* Pop-up winner et règles du jeu*/
+.modal-win, .modal-rules {
     display: none;
 }
 
@@ -101,12 +103,52 @@ body {
     left: 50%;
     padding: 25px;
     background: white;
-    transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%);
+    border-radius: 50px;
 }
 
-#modalText {
-    font-weight: bold;
+.modalText, .rules-title {
     text-align: center;
+    padding-left: 3vw;
+    padding-right: 3vw;
+}
+
+.modalText {
+    font-size: 0.4em;
+}
+
+.rules-title {
+    color: red;
+    padding-bottom: 1vw;
+    font-weight: bold;
+}
+
+#modal-close {
+    padding: 10vw;
+}
+
+
+#btn-rules {
+    position: fixed;
+    top : 15px;
+    right: 15px;
+}
+
+.bi-controller {
+    width : 4vw;
+    height: 4vw;
+    background-color: white;
+    color: red;
+}
+
+#modal-close2 {
+    border: 1px solid red;
+    border-radius: 10px;
+    background: red;
+    color: white;
+    font-weight: bold;
+    margin-left: 19vw;
+    margin-top: 2vw;
 }
 
 /* Appareils petits (460px et plus) */
@@ -121,6 +163,10 @@ body {
 
     .current {
         margin-top: 0%;
+    }
+
+    .modalText {
+        font-size: 0.6em;
     }
 }
 
@@ -171,6 +217,10 @@ body {
     
     .players, .newgame {
         margin-bottom: 10%;
+    }
+
+    .modalText {
+        font-size: 0.8em;
     }
  }
 
@@ -226,6 +276,10 @@ body {
     
     .players, .newgame {
         margin-bottom: 4%;
+    }
+
+    .modalText {
+        font-size: 1em;
     }
  }
 
