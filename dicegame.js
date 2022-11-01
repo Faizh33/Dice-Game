@@ -15,7 +15,7 @@ let styleBtns = document.getElementsByClassName('butn');
 let winPop = document.getElementById('modal-win');
 let winPopText = document.getElementById('modalText');
 let rulesPop = document.getElementById('modal-rules');
-let anim = document.getElementsByClassName('img');
+const dice = document.getElementById('anim-dice');
 
 //Create players class
 class Players {
@@ -44,6 +44,7 @@ cssPlayer();
 let rollTheDice = debounce(function () {
   var randomNumber = random(1, 7);
   rollDiceSound.play();
+  diceAnimation();
   document.querySelector(".img").setAttribute("src", "./img-dice/" + "dice" + randomNumber + ".png");
 
   //Initialization game
@@ -146,6 +147,7 @@ let hold = debounce (function (){
           },
         });
       }
+      
       //Open Pop-up
       winPop.style.display = 'block';
       //Winner text
@@ -240,3 +242,11 @@ document.getElementById('btn-rules').addEventListener('click', function() {
 document.getElementById('modal-close2').addEventListener('click', function() {
   rulesPop.style.display = 'none';
 });
+
+//function dice animation
+function diceAnimation(){ 
+  dice.classList.add('anim');
+  setTimeout(()=> {
+    dice.classList.remove('anim')
+  },1500)
+}
