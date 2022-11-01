@@ -180,6 +180,7 @@ holdBtn.addEventListener('click', hold);
 //Function new game
 function newGame() {
   newGameSound.play();
+  diceAnimation2();
   player1 = new Players('player1', 0, 0);
   player2 = new Players('player2', 0, 0);
   gameTurn = 0;
@@ -193,7 +194,6 @@ function newGame() {
   cssPlayer();
   rollBtn.addEventListener('click', rollTheDice);
   holdBtn.addEventListener('click', hold);
-  anim.style.animationPlayState = 'running';
 }
 
 //Function confirm new game
@@ -248,5 +248,12 @@ function diceAnimation(){
   dice.classList.add('anim');
   setTimeout(()=> {
     dice.classList.remove('anim')
+  },1500)
+}
+
+function diceAnimation2(){
+  dice.classList.add('anim2');
+  setTimeout(()=> {
+    dice.classList.remove('anim2')
   },1500)
 }
