@@ -1,3 +1,4 @@
+let body = document.getElementById('body');
 const rollBtn = document.getElementById('rollDiceBtn');
 let current = document.getElementsByClassName('currentScore');
 const holdBtn = document.getElementById('hold-btn');
@@ -14,14 +15,15 @@ let styleBtns = document.getElementsByClassName('butn');
 let winPop = document.getElementById('modal-win');
 let winPopText = document.getElementById('modalText');
 let rulesPop = document.getElementById('modal-rules');
+let anim = document.getElementsByClassName('img');
 
 //Create players class
 class Players {
   constructor(name, currentScore, totalScore, win) {
-    this.name = name
-    this.currentScore = currentScore
-    this.totalScore = totalScore
-    this.win = false
+    this.name = name;
+    this.currentScore = currentScore;
+    this.totalScore = totalScore;
+    this.win = false;
   }
 }  
 
@@ -61,16 +63,16 @@ let rollTheDice = debounce(function () {
     player1.currentScore = 0;
     current[0].textContent = player1.currentScore;
     switchPlayer();
-    cssPlayer()
+    cssPlayer();
   } else if (randomNumber === 1 && gameTurn%2 !== 0) {
     cssPlayer();
     loseSound.play();
     player2.currentScore = 0;
     current[1].textContent = player2.currentScore;
     switchPlayer();
-    cssPlayer()
+    cssPlayer();
   }
-}, 500)
+}, 500);
 
 //Fonction debounce
 function debounce(callback, delay) {
@@ -81,8 +83,8 @@ function debounce(callback, delay) {
     clearTimeout(timer);
     timer = setTimeout(function () {
       callback.apply(context, args);
-    }, delay)
-  }
+    }, delay);
+  };
 }
 
 //Function random number
@@ -107,23 +109,23 @@ function switchPlayer() {
 }
 
 //function to add total score
-let hold = debounce (function (e){
-  holdSound.play()
+let hold = debounce (function (){
+  holdSound.play();
 
   if(gameTurn%2 === 0) {
     player1.totalScore += player1.currentScore;
     total[0].textContent = player1.totalScore;
     player1.currentScore = 0;
-    current[0].textContent = player1.currentScore
-    switchPlayer()
-    cssPlayer()
+    current[0].textContent = player1.currentScore;
+    switchPlayer();
+    cssPlayer();
   } else {
     player2.totalScore += player2.currentScore;
     total[1].textContent = player2.totalScore;
     player2.currentScore = 0;
-    current[1].textContent = player2.currentScore
-    switchPlayer()
-    cssPlayer()
+    current[1].textContent = player2.currentScore;
+    switchPlayer();
+    cssPlayer();
   }
 
     //if the player reaches 100 points
@@ -134,7 +136,7 @@ let hold = debounce (function (e){
     }
     //Animations
     if(player1.totalScore >= 100 || player2.totalScore >= 100) {
-      applauseSound.play()
+      applauseSound.play();
       //Confetti animation
       for (let index = 0; index < (Math.floor(Math.random() * 20) + 10); index++) {
         confetti({ 
@@ -142,10 +144,10 @@ let hold = debounce (function (e){
             x: Math.random() - 0.2,
             y: Math.random() - 0.2
           },
-        })
+        });
       }
       //Open Pop-up
-      winPop.style.display = 'block'
+      winPop.style.display = 'block';
       //Winner text
       if (player1.win === true) {
         winPopText.textContent =  `PARTIE GAGNÉ !!
@@ -159,19 +161,19 @@ let hold = debounce (function (e){
         `;
       }
       //Close Pop-up
-      document.getElementById('modal-close1').addEventListener('click', function(e) {
-        winPop.style.display = 'none'
-      })
+      document.getElementById('modal-close1').addEventListener('click', function() {
+        winPop.style.display = 'none';
+      });
       //Restart game
     rollBtn.removeEventListener('click', rollTheDice);
     holdBtn.removeEventListener('click', hold);
     dot[0].style.opacity = 0;
     dot[1].style.opacity = 0;
     }
-}, 300)
+}, 300);
 
 //event function hold()
-holdBtn.addEventListener('click', hold)
+holdBtn.addEventListener('click', hold);
 
 //Function new game
 function newGame() {
@@ -189,6 +191,7 @@ function newGame() {
   cssPlayer();
   rollBtn.addEventListener('click', rollTheDice);
   holdBtn.addEventListener('click', hold);
+  anim.style.animationPlayState = 'running';
 }
 
 //Function confirm new game
@@ -199,7 +202,7 @@ function confirmRestart() {
 }
 
 //Event newGame
-newGameBtn.addEventListener('click', confirmRestart)
+newGameBtn.addEventListener('click', confirmRestart);
 
 //Function css player
 function cssPlayer() {
@@ -229,11 +232,11 @@ function cssPlayer() {
 }
 
 //Open game rules
-document.getElementById('btn-rules').addEventListener('click', function(e) {
-  rulesPop.style.display = 'block'
-})
+document.getElementById('btn-rules').addEventListener('click', function() {
+  rulesPop.style.display = 'block';
+});
 
 //Close game rules
-document.getElementById('modal-close2').addEventListener('click', function(e) {
-  rulesPop.style.display = 'none'
-})
+document.getElementById('modal-close2').addEventListener('click', function() {
+  rulesPop.style.display = 'none';
+});
