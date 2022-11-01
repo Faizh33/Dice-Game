@@ -37,7 +37,6 @@ body {
 }
 
 .current {
-    border: 1px red solid;
     background: red;
     max-height: 100px;
     margin-top: 30%;
@@ -142,7 +141,6 @@ body {
 }
 
 #modal-close2 {
-    border: 1px solid red;
     border-radius: 10px;
     background: red;
     color: white;
