@@ -243,7 +243,7 @@ document.getElementById('modal-close2').addEventListener('click', function() {
   rulesPop.style.display = 'none';
 });
 
-//function dice animation
+//function dice animation when roll the dice
 function diceAnimation(){ 
   dice.classList.add('anim');
   setTimeout(()=> {
@@ -251,6 +251,7 @@ function diceAnimation(){
   },1500)
 }
 
+//function dice animation when click new game
 function diceAnimation2(){
   dice.classList.add('anim2');
   setTimeout(()=> {
