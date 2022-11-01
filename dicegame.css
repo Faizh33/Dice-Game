@@ -161,22 +161,19 @@ body {
   }
   
   @keyframes shake {
-    10%, 90% {
-      transform: translate3d(-1px, 0, 0);
+    0%{
+        transform: rotate(8deg);
     }
-    
-    20%, 80% {
-      transform: translate3d(2px, 0, 0);
+    30%{
+        transform: rotate(-8deg);
     }
-  
-    30%, 50%, 70% {
-      transform: translate3d(-4px, 0, 0);
+    60%{
+        transform: rotate(8deg);
     }
-  
-    40%, 60% {
-      transform: translate3d(4px, 0, 0);
+    100%{
+        transform: rotate(0deg);
     }
-  }
+}
 
 /* Appareils petits (460px et plus) */
 @media (min-width: 460px) {
