@@ -141,6 +141,7 @@ body {
 }
 
 #modal-close2 {
+    border: 1px solid red;
     border-radius: 10px;
     background: red;
     color: white;
