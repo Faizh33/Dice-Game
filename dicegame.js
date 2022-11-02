@@ -45,7 +45,7 @@ let rollTheDice = debounce(function () {
   var randomNumber = random(1, 7);
   rollDiceSound.play();
   diceAnimation();
-  document.querySelector(".img").setAttribute("src", "./img-dice/" + "dice" + randomNumber + ".png");
+  document.querySelector(".img").setAttribute("src", "img-dice/" + "dice" + randomNumber + ".png");
 
   //Initialization game
   if(gameTurn%2 === 0) {  //if gameTurn is even            
