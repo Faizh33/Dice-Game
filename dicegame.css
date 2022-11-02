@@ -142,7 +142,7 @@ body {
     color: red;
 }
 
-#modal-close2 {
+#modal-close2, #modal-close1 {
     border: 1px solid red;
     border-radius: 10px;
     background: red;
@@ -150,6 +150,10 @@ body {
     font-weight: bold;
     margin-left: 19vw;
     margin-top: 2vw;
+}
+
+#modal-close1 {
+    padding: 0.5vw;
 }
 
 /* Animation du dé */
