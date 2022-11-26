@@ -1,3 +1,5 @@
+URL du site : https://dicegamefaizh.netlify.app
+
 Le jeu comprend 2 joueurs sur un seul et même écran. 
 Chaque joueur possède un score temporaire (ROUND) et un score global (GLOBAL).
 À chaque tour, le joueur a son ROUND initialisé à 0 et peut lancer un dé autant de fois qu'il le souhaite. Le 
