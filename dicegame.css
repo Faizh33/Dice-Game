@@ -6,8 +6,9 @@ body {
 
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
-.player, .totalScore, .text-current, .currentScore, .rolldice-btn {
+.player, .totalScore, .text-current, .currentScore, .rolldice-btn, .newgame {
     text-align: center; 
+    color: 333333;
 }
 
 .inline, .newgame, .btn, .rolldice, .bi, .hold  {
@@ -17,6 +18,11 @@ body {
 .img, .current, .bi {
     height: 100%;
     width: 100%;
+}
+
+.img {
+    background: white;
+    border-radius: 22px;
 }
 
 .dice {
@@ -29,7 +35,7 @@ body {
     height: 3em;
     width: 3em;
     border: none;
-    background: white;
+    background: transparent !important;
     cursor: pointer;
 }
 
@@ -38,10 +44,21 @@ body {
     width: 4em;
 }
 
+.current-bloc {
+    border: 3px solid white;
+}
+
 .current {
-    background: red;
     max-height: 100px;
     margin-top: 30%;
+}
+
+.current1 {
+    background: #333333;
+}
+
+.current2 {
+    background: #333333;
 }
 
 .player {
@@ -52,12 +69,12 @@ body {
 .bi-dot {
     height: 8vw;
     width: 8vw;
-    color: red;
+    color: white;
 }
 
 .totalScore {
     font-size: 1.2em;
-    color: red;
+    color: #D72638;
 }
 
 .newgame {
@@ -77,7 +94,7 @@ body {
 }
   
 .text-current {
-    color: black;
+    color: white;
 }
 
 .totalScore {
@@ -133,6 +150,8 @@ body {
     position: fixed;
     top : 15px;
     right: 15px;
+    background-color: white;
+    border-color: #D72638;
 }
 
 .bi-controller {
@@ -247,7 +266,6 @@ body {
     }
     
     .current-bloc {
-        max-height: 115px;
         max-width: 200px;
     }
     
@@ -302,7 +320,6 @@ body {
     }
     
     .current-bloc {
-        max-height: 115px;
         max-width: 200px;
     }
     
