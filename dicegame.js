@@ -215,6 +215,7 @@ function cssPlayer() {
     playerText[1].style.fontWeight = 400;
     playerText[0].style.opacity = 1;
     playerText[1].style.opacity = 0.25;
+    playerText[0].style.filter = "none";
     playerText[1].style.filter = "blur(1px)";
     body.style.background = 'linear-gradient(90deg, #8B5CF6  50%, #FACC15  50%)';
     for (let styleBtn of styleBtns) {
@@ -228,6 +229,7 @@ function cssPlayer() {
     playerText[0].style.opacity = 0.25;
     playerText[1].style.opacity = 1;
     playerText[0].style.filter = "blur(1px)";
+    playerText[1].style.filter = "none";
     body.style.background = 'linear-gradient(90deg, #8B5CF6  50%, #FACC15 50%)';
     for (let styleBtn of styleBtns) {
       styleBtn.style.background = "white";
