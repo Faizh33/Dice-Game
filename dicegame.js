@@ -154,15 +154,13 @@ let hold = debounce (function (){
       winPop.style.display = 'block';
       //Winner text
       if (player1.win === true) {
-        winPopText.textContent =  `PARTIE GAGNÉ !!
-        La partie a été remporté par le joueur 1 avec ${player1.totalScore} points.
-        Pour jouer une nouvelle partie, cliquez sur New Game.
-        `;
+          winPopText.innerHTML = `🎉 <strong>PARTIE GAGNÉE !</strong> 🎉<br><br>
+          La partie a été remportée par le joueur 1 avec <strong>${player1.totalScore} points</strong>.<br>
+          Pour jouer une nouvelle partie, cliquez sur <em>Nouvelle partie</em>.`;
       } else if (player2.win === true) {
-        winPopText.textContent = `PARTIE GAGNÉ !!
-        La partie a été remporté par le joueur 2 avec ${player2.totalScore} points.
-        Pour jouer une nouvelle partie, cliquez sur New Game.
-        `;
+          winPopText.innerHTML = `🎉 <strong>PARTIE GAGNÉE ! 🎉</strong><br><br>
+          La partie a été remportée par le joueur 2 avec <strong>${player2.totalScore} points</strong>.<br>
+          Pour jouer une nouvelle partie, cliquez sur <em>Nouvelle partie</em>.<br>`;
       }
       //Close Pop-up
       document.getElementById('modal-close1').addEventListener('click', function() {
