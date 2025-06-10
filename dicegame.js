@@ -11,6 +11,8 @@ const holdSound = document.getElementById('holdSound');
 const loseSound = document.getElementById('loseSound');
 const rollDiceSound = document.getElementById('rollDiceSound');
 let playerText = document.getElementsByClassName('player');
+const currentContainerPlayer1 = document.getElementById('current1');
+const currentContainerPlayer2 = document.getElementById('current2');
 let styleBtns = document.getElementsByClassName('butn');
 let winPop = document.getElementById('modal-win');
 let winPopText = document.getElementById('modalText');
@@ -217,6 +219,14 @@ function cssPlayer() {
     playerText[1].style.opacity = 0.25;
     playerText[0].style.filter = "none";
     playerText[1].style.filter = "blur(1px)";
+    currentContainerPlayer2.style.opacity = 0.25;
+    currentContainerPlayer2.style.filter = "blur(1px)";
+    total[1].style.opacity = 0.25;
+    total[1].style.filter = "blur(1px)";
+    currentContainerPlayer1.style.opacity = 1;
+    currentContainerPlayer1.style.filter = "none";
+    total[0].style.opacity = 1;
+    total[0].style.filter = "none";
     body.style.background = 'linear-gradient(90deg, #8B5CF6  50%, #FACC15  50%)';
     for (let styleBtn of styleBtns) {
       styleBtn.style.background = "#edf1f1";
@@ -230,6 +240,14 @@ function cssPlayer() {
     playerText[1].style.opacity = 1;
     playerText[0].style.filter = "blur(1px)";
     playerText[1].style.filter = "none";
+    currentContainerPlayer1.style.opacity = 0.25;
+    currentContainerPlayer1.style.filter = "blur(1px)";
+    total[0].style.opacity = 0.25;
+    total[0].style.filter = "blur(1px)";
+    currentContainerPlayer2.style.opacity = 1;
+    currentContainerPlayer2.style.filter = "none";
+    total[1].style.opacity = 1;
+    total[1].style.filter = "none";
     body.style.background = 'linear-gradient(90deg, #8B5CF6  50%, #FACC15 50%)';
     for (let styleBtn of styleBtns) {
       styleBtn.style.background = "white";
