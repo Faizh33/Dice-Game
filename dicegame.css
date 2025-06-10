@@ -162,17 +162,19 @@ body {
 }
 
 #modal-close2, #modal-close1 {
-    border: 1px solid red;
+    border: 1px solid #333333;
     border-radius: 10px;
-    background: red;
+    background: #333333;
     color: white;
     font-weight: bold;
     margin-left: 19vw;
     margin-top: 2vw;
+    padding: 0.5vw 1vw;
 }
 
-#modal-close1 {
-    padding: 0.5vw;
+#modal-close2:hover, #modal-close1:hover {
+    background: #606060;
+
 }
 
 /* Animation du dé */
