@@ -150,15 +150,15 @@ body {
     position: fixed;
     top : 15px;
     right: 15px;
-    background-color: white;
+    background-color: #D72638;
     border-color: #D72638;
 }
 
 .bi-controller {
     width : 4vw;
     height: 4vw;
-    background-color: white;
-    color: red;
+    background-color: #D72638;
+    color: #fff;
 }
 
 #modal-close2, #modal-close1 {
