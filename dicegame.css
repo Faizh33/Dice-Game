@@ -170,11 +170,12 @@ body {
     margin-left: 19vw;
     margin-top: 2vw;
     padding: 0.5vw 1vw;
+    text-decoration: none;
 }
 
 #modal-close2:hover, #modal-close1:hover {
     background: #606060;
-
+    border: 1px solid #606060;
 }
 
 /* Animation du dé */
