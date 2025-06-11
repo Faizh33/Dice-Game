@@ -9,6 +9,7 @@ body {
 .player, .totalScore, .text-current, .currentScore, .rolldice-btn, .newgame {
     text-align: center; 
     color: #333333;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.4);
 }
 
 .inline, .newgame, .btn, .rolldice, .bi, .hold  {
@@ -354,4 +355,3 @@ body {
         font-size: 1em;
     }
  }
-
