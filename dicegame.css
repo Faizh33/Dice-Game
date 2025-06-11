@@ -47,11 +47,13 @@ body {
 
 .current-bloc {
     border: 3px solid white;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .current {
     max-height: 100px;
     margin-top: 30%;
+
 }
 
 .current1 {
