@@ -1,14 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Luckiest+Guy&display=swap');
 
 body {
-    font-family: 'Lato', sans-serif;
+    font-family: "Luckiest Guy", cursive;
     font-size: 1em;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 .player, .totalScore, .text-current, .currentScore, .rolldice-btn, .newgame {
     text-align: center; 
     color: #333333;
+}
+
+.player, .totalScore, .rolldice-btn, .newgame {
     text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.4);
 }
 
@@ -136,10 +138,11 @@ body {
 
 .modalText {
     font-size: 0.4em;
+    font-family: "Lato", sans-serif;
 }
 
 .rules-title {
-    color: red;
+    color: #D72638;
     padding-bottom: 1vw;
     font-weight: bold;
 }
@@ -174,6 +177,7 @@ body {
     margin-top: 2vw;
     padding: 0.5vw 1vw;
     text-decoration: none;
+    font-family: "Lato", sans-serif;
 }
 
 #modal-close2:hover, #modal-close1:hover {
