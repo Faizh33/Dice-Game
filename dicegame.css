@@ -42,6 +42,20 @@ body {
     cursor: pointer;
 }
 
+#sound-icon {
+    cursor: pointer;
+    position: fixed;
+    top : 15px;
+    left: 15px;
+    background-color: #D72638;
+    border-color: #D72638;
+}
+
+.new-game-btn {
+    margin-top: 20px;
+    margin-bottom : 30px;
+}
+
 #newGameBtn {
     height: 4em;
     width: 4em;
@@ -162,11 +176,9 @@ body {
     border-color: #D72638;
 }
 
-.bi-controller {
+.bi-controller, .bi-volume-up-fill, .bi-volume-mute-fill {
     width : 4vw;
     height: 4vw;
-    background-color: #D72638;
-    color: #fff;
 }
 
 #modal-close2, #modal-close1 {
