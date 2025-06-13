@@ -278,3 +278,28 @@ function diceAnimation2(){
     dice.classList.remove('anim2')
   },1500)
 }
+
+//Cut sound when click on the sound icon
+document.getElementById('sound-icon').addEventListener('click', function() {
+  if (applauseSound.muted) {
+    applauseSound.muted = false;
+    newGameSound.muted = false;
+    holdSound.muted = false;
+    loseSound.muted = false;
+    rollDiceSound.muted = false;
+
+    document.getElementById('icon-volume-on').style.display = 'inline';
+    document.getElementById('icon-volume-off').style.display = 'none';
+  } else {
+    applauseSound.muted = true;
+    newGameSound.muted = true;
+    holdSound.muted = true;
+    loseSound.muted = true;
+    rollDiceSound.muted = true;
+
+    document.getElementById('icon-volume-on').style.display = 'none';
+    document.getElementById('icon-volume-off').style.display = 'inline';
+  }
+});
+
+
