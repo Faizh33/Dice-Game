@@ -5,16 +5,16 @@ body {
     font-size: 1em;
 }
 
-.player, .totalScore, .text-current, .currentScore, .rolldice-btn {
+.player, .totalScore, .text-current, .currentScore, .rolldice, .hold {
     text-align: center; 
     color: #333333;
 }
 
-.player, .totalScore, .rolldice-btn, .newgame {
+.player, .totalScore, .rolldice-btn, .newgame, .rolldice, .hold {
     text-shadow: 2px 2px 6px rgba(255, 255, 255, 0.8);
 }
 
-.inline, .newgame, .btn, .rolldice, .hold  {
+.inline, .newgame, .btn, .rolldice, .hold {
     display: inline-block;
 }
 
