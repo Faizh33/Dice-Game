@@ -5,7 +5,7 @@ body {
     font-size: 1em;
 }
 
-.player, .totalScore, .text-current, .currentScore, .rolldice-btn, .newgame {
+.player, .totalScore, .text-current, .currentScore, .rolldice-btn {
     text-align: center; 
     color: #333333;
 }
@@ -14,11 +14,11 @@ body {
     text-shadow: 2px 2px 6px rgba(255, 255, 255, 0.8);
 }
 
-.inline, .newgame, .btn, .rolldice, .bi, .hold  {
+.inline, .newgame, .btn, .rolldice, .hold  {
     display: inline-block;
 }
 
-.img, .current, .bi {
+.img, .current {
     height: 100%;
     width: 100%;
 }
@@ -35,11 +35,22 @@ body {
 }
 
 .butn {
-    height: 3em;
-    width: 3em;
-    border: none;
-    background: transparent !important;
-    cursor: pointer;
+  padding: 20px 40px;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50px;
+  color: #FFFFFF;
+  background: linear-gradient(135deg, #FACC15, #8B5CF6) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.butn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 
 #sound-icon {
@@ -54,11 +65,6 @@ body {
 .new-game-btn {
     margin-top: 20px;
     margin-bottom : 30px;
-}
-
-#newGameBtn {
-    height: 4em;
-    width: 4em;
 }
 
 .current-bloc {
@@ -101,6 +107,7 @@ body {
     margin-bottom: 15%;
     font-size: 1.2em;
     font-weight: 700;
+    color: #333333;
 }
 
 .players {
@@ -276,10 +283,6 @@ body {
         width: 175px;
     }
     
-    .butn {
-        height: 3.8em;
-        width: 3.8em;
-    }
     
     .player {
         font-size: 2.3em;
@@ -328,11 +331,6 @@ body {
         height: 150px;
         width: 200px;
         margin-top: 5%;
-    }
-    
-    .butn {
-        height: 4.7em;
-        width: 4.7em;
     }
     
     .player {
