@@ -381,3 +381,19 @@ body {
         font-size: 1em;
     }
  }
+
+ #rotate-warning {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100vw;
+    height: 100vh;
+    background: #000000dd;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 5rem;
+}
