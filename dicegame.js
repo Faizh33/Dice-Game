@@ -303,3 +303,11 @@ document.getElementById('sound-icon').addEventListener('click', function() {
 });
 
 
+function checkOrientation() {
+    const isPortrait = window.innerHeight > window.innerWidth;
+    document.getElementById('rotate-warning').style.display = isPortrait ? 'flex' : 'none';
+}
+
+window.addEventListener("resize", checkOrientation);
+window.addEventListener("orientationchange", checkOrientation);
+window.addEventListener("load", checkOrientation);
